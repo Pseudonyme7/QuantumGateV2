@@ -141,6 +141,13 @@ namespace QCS
             { Complex.Zero,  Complex.Zero,  Complex.Zero,  Complex.One }
         });
 
+        public static readonly Gate CNOT = new Gate("CNOT", 2, new Complex[,] {
+            { Complex.One,  Complex.Zero,  Complex.Zero,  Complex.Zero },
+            { Complex.Zero,  Complex.One,  Complex.Zero,  Complex.Zero },
+            { Complex.Zero,  Complex.Zero,  Complex.Zero,  Complex.One },
+            { Complex.Zero,  Complex.Zero,  Complex.One,  Complex.Zero }
+        });
+
         public static readonly Gate HADAMARD = new Gate("H", 1, new Complex[,] {
             { Complex.One,  Complex.One },
             { Complex.One,  -Complex.One }

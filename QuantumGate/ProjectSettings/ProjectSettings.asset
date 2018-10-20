@@ -409,6 +409,7 @@ PlayerSettings:
   switchAllowsVideoCapturing: 1
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
+  switchUserAccountLockEnabled: 0
   switchSupportedNpadStyles: 3
   switchSocketConfigEnabled: 0
   switchTcpInitialSendBufferSize: 32
@@ -643,9 +644,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 3
-  cloudProjectId: 81433116-539c-4845-bc8c-1cb4f391a5b7
-  projectName: QuantumGate
-  organizationId: unity_ip-a9jkku4o_8w
+  cloudProjectId: 2dbd6bbc-5ff4-4f81-95a6-7f9a1da86161
+  projectName: QuantumGate (4)
+  organizationId: aghatorzz
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

@@ -20,7 +20,7 @@ namespace Smartphone_States
         {
             Debug.Log("DragGate");
             if (GameManager.CanVibrate())
-                Handheld.Vibrate();
+                //Handheld.Vibrate();
             
             _draggedGate.body.transform.Translate(0, 0, -GridBoard.gateThikness);
         }
