@@ -64,8 +64,8 @@ namespace QCS
             {
                 double p = (this.Vector[0, i] * this.Vector[0, i]).Real;
                 if (p > 0)
-                    //s += "|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> : " + String.Format("{0:0.000}", Math.Sqrt(p)) + "\n";
-                    s += String.Format("{0:0.000}", Math.Sqrt(p)) + " |" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
+                    //s += "|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> : " + String.Format("{0:0.00}", Math.Sqrt(p)) + "\n";
+                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
             }
             s = s.Substring(0, s.Length - 2);
             return s;

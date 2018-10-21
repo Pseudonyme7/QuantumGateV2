@@ -2351,7 +2351,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1921569, g: 0.47450984, b: 0.46282622, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -4196,8 +4196,8 @@ RectTransform:
   m_LocalScale: {x: 1.9888889, y: 1.9888889, z: 1.9888889}
   m_Children:
   - {fileID: 818652437}
-  - {fileID: 1330494093}
   - {fileID: 1095714426}
+  - {fileID: 1330494093}
   - {fileID: 389240169}
   - {fileID: 1631927823}
   - {fileID: 1169882847}
@@ -6123,7 +6123,7 @@ RectTransform:
   - {fileID: 1484148041}
   - {fileID: 1342031099}
   m_Father: {fileID: 720022938}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7314,18 +7314,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330494092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1977906067}
   - {fileID: 938417256}
   m_Father: {fileID: 720022938}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 91, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330494094
@@ -7340,14 +7340,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.11764705, g: 0.091695495, b: 0.091695495, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9d64b285daf1933429544aaae548324c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9582,6 +9582,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 454d8ab2b91095046b990ece3b88b780, type: 2}
+    - target: {fileID: 9500000, guid: a74c48387e9597c4b89c0e9319df9474, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74c48387e9597c4b89c0e9319df9474, type: 3}
   m_IsPrefabParent: 0
@@ -10202,9 +10206,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "QuantumGate est un projet r\xE9alis\xE9 lors d'un TER \xE0 AMU Luminy sous
-    la responsabilit\xE9 de M.Arrighi\nD\xE9velopp\xE9 par :\nGROS J\xE9r\xE9my\nHAMONIC
-    Fran\xE7ois\nDROUARD Lo\xEFc"
+  m_Text: "QuantumGateV2 est un projet r\xE9alis\xE9 lors de l'UE de GL \xE0 AMU Luminy
+    sous la responsabilit\xE9 de M.Arrighi\nD\xE9velopp\xE9 par :\nBwaaba and co"
 --- !u!222 &2068425217
 CanvasRenderer:
   m_ObjectHideFlags: 0

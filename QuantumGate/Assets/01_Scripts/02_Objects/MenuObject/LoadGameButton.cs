@@ -69,7 +69,7 @@ public class LoadGameButton : MonoBehaviour {
 		SandBoxSession session = GameManager.UserManager.GetCurrentUser ().GetSessionSandBox (name);
 
 		GameMode.nameGame = name;
-		GameMode.gates = new List<QCS.Gate>() { QCS.Gate.NOT, QCS.Gate.CONTROL, QCS.Gate.SWAP, QCS.Gate.HADAMARD };
+		GameMode.gates = new List<QCS.Gate>() { QCS.Gate.NOT, QCS.Gate.CONTROL, QCS.Gate.SWAP, QCS.Gate.HADAMARD, QCS.Gate.CNOT };
 		GameMode.customGates = SerializableClass.Helper.ToUsableGates(session.customGates);
 		GameMode.circuits = SerializableClass.Helper.ToUsableCircuits(session.circuits, GameMode.gates, GameMode.customGates);
 
