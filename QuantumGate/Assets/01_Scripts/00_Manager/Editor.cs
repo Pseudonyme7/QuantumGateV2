@@ -27,7 +27,7 @@ public class Editor : MonoBehaviour
     [SerializeField]
     private GameObject settingsPanel;
 
-    
+
     [SerializeField]
     private GameObject gateMenu;
     [SerializeField]
@@ -104,7 +104,9 @@ public class Editor : MonoBehaviour
     void Start()
     {
         HidePanels();
+
         
+
         _defaultGates = new Dictionary<string, QCS.Gate>();
         _customGates = new Dictionary<string, QCS.Gate>();
 
@@ -157,8 +159,12 @@ public class Editor : MonoBehaviour
 
     public void ShowResultPanel(bool active)
     {
+ 
         resultPanel.SetActive(active);
+  
     }
+
+ 
 
     public void SetResultHeader(string header)
     {
