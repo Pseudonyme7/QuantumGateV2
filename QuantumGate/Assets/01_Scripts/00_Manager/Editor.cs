@@ -27,7 +27,7 @@ public class Editor : MonoBehaviour
     [SerializeField]
     private GameObject settingsPanel;
 
-
+    //BWaaba
     [SerializeField]
     private GameObject gateMenu;
     [SerializeField]
