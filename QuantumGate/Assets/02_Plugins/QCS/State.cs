@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using System.Numerics;
 using MathNet.Numerics.LinearAlgebra;
 
@@ -58,17 +59,44 @@ namespace QCS
         public override string ToString()
         {
             string s = "";
+            string seq = "";
             int n = Stuff.Log2(this.Vector.ColumnCount);
 
             for (int i = 0; i < this.Vector.ColumnCount; i++)
             {
                 double p = (this.Vector[0, i] * this.Vector[0, i]).Real;
                 if (p > 0)
-                    //s += "|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> : " + String.Format("{0:0.00}", Math.Sqrt(p)) + "\n";
-                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
+                {
+                    
+                    //s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
+                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|                      "+ "> " + " +\n\n";
+                    seq += Convert.ToString(i, 2).PadLeft(n, '0');
+                }
             }
+            UnityEngine.Debug.Log(" "+seq);
             s = s.Substring(0, s.Length - 2);
             return s;
+        }
+
+        public string Sequence()
+        {
+            string s = "";
+            string seq = "";
+            int n = Stuff.Log2(this.Vector.ColumnCount);
+
+            for (int i = 0; i < this.Vector.ColumnCount; i++)
+            {
+                double p = (this.Vector[0, i] * this.Vector[0, i]).Real;
+                if (p > 0)
+                {
+                   
+                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + "." + Convert.ToString(i, 2).PadLeft(n, '0') + " + ";
+                    seq += Convert.ToString(i, 2);
+                }
+            }
+            UnityEngine.Debug.Log(" " + seq);
+            s = s.Substring(0, s.Length - 2);
+            return seq;
         }
 
         public bool Equals(State state)
