@@ -30,38 +30,28 @@ namespace PC_States
 
     public override void OnEnter()
     {
-        string res, Seq;
+        string res;
         int taille;
         Debug.Log("ShowResult");
         context.SetResultHeader("Result of row : " + _row);
         context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
         res = context.currentCircuit.Evaluate(_row).ToString();
-        Seq = context.currentCircuit.Evaluate(_row).Sequence();
+        taille = res.Length;
+            // A revoir si y a le temps
+            if (taille < 16)
+            {
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f) * 0.7f);
+            }
 
-
-            // CAS NUMERO 1 1 POSSIBILITE
-
-            GameObject ball1 = context.CreateBlackBall(368, 170, (float)0.3);
-            GameObject ball2 = context.CreateBlackBall(400, 170, (float)0.3);
-            GameObject ball3 = context.CreateBlackBall(432, 170, (float)0.3);
-
-
-
-
-            //GameObject ball1 = context.CreateBlackBall(368, 170, (float)0.3);
-            //GameObject ball2 = context.CreateBlackBall(400, 170, (float)0.3);
-            //GameObject ball3 = context.CreateBlackBall(432, 170, (float)0.3);
-
-            //GameObject ball4 = context.CreateBlackBall(368, 220, (float)0.3);
-            //GameObject ball5 = context.CreateBlackBall(400, 220, (float)0.3);
-            //GameObject ball6 = context.CreateBlackBall(432, 220, (float)0.3);
-
-
-            taille = res.Length;
-
+            if (taille < 30)
+            {
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f));
+            }
 
- 
+            if (taille >= 30)
+            {
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f) * 1.1f);
+            }
 
             
             // message de test pour afficher la taille du résultat dans la console
