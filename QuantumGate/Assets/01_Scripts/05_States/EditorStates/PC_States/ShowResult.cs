@@ -35,24 +35,16 @@ namespace PC_States
         Debug.Log("ShowResult");
         context.SetResultHeader("Result of row : " + _row);
         context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
-        res = context.currentCircuit.Evaluate(_row).ToString();
-        taille = res.Length;
+            res = context.currentCircuit.Evaluate(_row).ToString();
+
+            GameObject ball1 = context.CreateBlackBall(400, 2, (float)0.3);
+            GameObject ball3 = context.CreateBlackBall(400, 2, (float)0.3);
+
+            taille = res.Length;
             // A revoir si y a le temps
-            if (taille < 16)
-            {
-                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f) * 0.7f);
-            }
-
-            if (taille < 30)
-            {
+            
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f));
-            }
-
-            if (taille >= 30)
-            {
-                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f) * 1.1f);
-            }
-
+  
             
             // message de test pour afficher la taille du résultat dans la console
             Debug.Log("taille ="+ taille);
