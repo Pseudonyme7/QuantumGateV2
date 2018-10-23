@@ -30,10 +30,34 @@ namespace PC_States
 
     public override void OnEnter()
     {
+        string res;
+        int taille;
         Debug.Log("ShowResult");
         context.SetResultHeader("Result of row : " + _row);
         context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
-        context.ShowResultPanel(true);
+        res = context.currentCircuit.Evaluate(_row).ToString();
+        taille = res.Length;
+            // A revoir si y a le temps
+            if (taille < 16)
+            {
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f) * 0.7f);
+            }
+
+            if (taille < 30)
+            {
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f));
+            }
+
+            if (taille >= 30)
+            {
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f) * 1.1f);
+            }
+
+            
+            // message de test pour afficher la taille du résultat dans la console
+            Debug.Log("taille ="+ taille);
+            context.ShowResultPanel(true);
+
     }
 
     public override void OnExit() { context.ShowResultPanel(false); }

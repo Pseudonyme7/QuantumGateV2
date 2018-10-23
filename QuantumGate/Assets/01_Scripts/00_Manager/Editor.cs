@@ -53,6 +53,9 @@ public class Editor : MonoBehaviour
     public GameObject actionsGatePanel;
     public GameObject actionsGridPanel;
 
+    public GameObject whiteBall;
+    public GameObject blackBall;
+
     private EditorState _currentState;
     public EditorState CurrentState
     {
@@ -148,7 +151,11 @@ public class Editor : MonoBehaviour
 	 * ###############################################################################################
 	 * ###############################################################################################
 	 */
-
+    public void SetresultPanelScale(Vector3 scale)
+    {
+        resultPanel.transform.localScale = scale;
+    }
+ 
     private void HidePanels()
     {
         foreach (GameObject panel in hiddenPanelAtStart)
