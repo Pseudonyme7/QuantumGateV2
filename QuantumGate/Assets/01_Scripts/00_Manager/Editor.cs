@@ -166,12 +166,43 @@ public class Editor : MonoBehaviour
 
     public void ShowResultPanel(bool active)
     {
- 
+
         resultPanel.SetActive(active);
-  
+
+        whiteBall.SetActive(true);
+        blackBall.SetActive(true);
+        GameObject ball1 = CreateBlackBall(400,               2, (float)0.3);
+        GameObject ball3 = CreateBlackBall(400,               2, (float)0.3);
+
+        GameObject ball2 = CreateWhiteBall(3,               2,  (float)0.3);
+        GameObject ball4 = CreateWhiteBall(5,               2, (float)0.3);
+
     }
 
- 
+    public GameObject CreateWhiteBall(float x , float y , float a)
+    { 
+        GameObject wBall = Instantiate(whiteBall);
+        wBall.transform.position.Set(x, y, 0);
+        wBall.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * a;
+        wBall.SetActive(true);
+        wBall.transform.SetParent(resultPanel.transform);
+        return wBall;
+    }
+
+
+    public GameObject CreateBlackBall(float x, float y, float a)
+    {
+        GameObject bBall = Instantiate(blackBall);
+        bBall.transform.position.Set(x, y, 0);
+        bBall.transform.localScale = new Vector3 ( 1.0f , 1.0f, 1.0f )* a;
+        bBall.SetActive(true);
+        bBall.transform.SetParent(resultPanel.transform);
+        return bBall;
+    }
+
+
+
+
 
     public void SetResultHeader(string header)
     {
