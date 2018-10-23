@@ -11,7 +11,7 @@ namespace PC_States
     /// Numero de la ligne
     /// </summary>
     private int _row;
-
+        //bwa
     /// <summary>
     /// Etat precedent
     /// </summary>
