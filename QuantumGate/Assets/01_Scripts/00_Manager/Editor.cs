@@ -169,8 +169,8 @@ public class Editor : MonoBehaviour
 
         resultPanel.SetActive(active);
 
-        whiteBall.SetActive(false);
-        blackBall.SetActive(false);
+        whiteBall.SetActive(true);
+        blackBall.SetActive(true);
         //GameObject ball1 = CreateBlackBall(400,               2, (float)0.3);
         //GameObject ball3 = CreateBlackBall(400,               2, (float)0.3);
 
@@ -180,12 +180,16 @@ public class Editor : MonoBehaviour
     }
 
     public GameObject CreateWhiteBall(float x , float y , float a)
-    { 
+    {
+
         GameObject wBall = Instantiate(whiteBall);
-        wBall.transform.position =new Vector3(x, y, 0);
+
+        wBall.transform.SetParent(resultPanel.transform);
+        
+        wBall.transform.localPosition =new Vector3(x, y, 0);
         wBall.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * a;
         wBall.SetActive(true);
-        wBall.transform.SetParent(resultPanel.transform);
+        //wBall.transform.SetParent(resultPanel.transform);
         return wBall;
     }
 
@@ -193,10 +197,12 @@ public class Editor : MonoBehaviour
     public GameObject CreateBlackBall(float x, float y, float a)
     {
         GameObject bBall = Instantiate(blackBall);
-        bBall.transform.position= new Vector3(x, y, 0);
-        bBall.transform.localScale = new Vector3 ( 1.0f , 1.0f, 1.0f )* a;
-        bBall.SetActive(true);
         bBall.transform.SetParent(resultPanel.transform);
+        bBall.SetActive(true);
+        bBall.transform.localPosition= new Vector3(x, y, 0);
+        bBall.transform.localScale = new Vector3 ( 1.0f , 1.0f, 1.0f )* a;
+        
+        
         return bBall;
     }
 

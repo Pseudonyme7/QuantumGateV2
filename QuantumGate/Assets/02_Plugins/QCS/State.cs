@@ -69,11 +69,11 @@ namespace QCS
                 {
                     
                     //s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
-                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|                      "+ "> " + " +\n\n";
+                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|\t\t\t\t\t\t" + "> " + " +";
                     seq += Convert.ToString(i, 2).PadLeft(n, '0');
                 }
             }
-            UnityEngine.Debug.Log(" "+seq);
+            UnityEngine.Debug.Log(" "+s);
             s = s.Substring(0, s.Length - 2);
             return s;
         }
@@ -91,6 +91,7 @@ namespace QCS
                 {
                    
                     s += String.Format("{0:0.00}", Math.Sqrt(p)) + "." + Convert.ToString(i, 2).PadLeft(n, '0') + " + ";
+
                     seq += Convert.ToString(i, 2);
                 }
             }
