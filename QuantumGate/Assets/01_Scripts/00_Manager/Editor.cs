@@ -169,8 +169,8 @@ public class Editor : MonoBehaviour
 
         resultPanel.SetActive(active);
 
-        whiteBall.SetActive(true);
-        blackBall.SetActive(true);
+        whiteBall.SetActive(false);
+        blackBall.SetActive(false);
         //GameObject ball1 = CreateBlackBall(400,               2, (float)0.3);
         //GameObject ball3 = CreateBlackBall(400,               2, (float)0.3);
 

@@ -65,11 +65,12 @@ namespace QCS
             for (int i = 0; i < this.Vector.ColumnCount; i++)
             {
                 double p = (this.Vector[0, i] * this.Vector[0, i]).Real;
+                double amp = this.Vector[0,i].Real;
                 if (p > 0)
                 {
                     
                     //s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
-                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|\t\t\t\t\t\t" + "> " + " +";
+                    s += String.Format("{0:0.00}",amp) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
                     seq += Convert.ToString(i, 2).PadLeft(n, '0');
                 }
             }
@@ -96,7 +97,6 @@ namespace QCS
                 }
             }
             UnityEngine.Debug.Log(" " + seq);
-            s = s.Substring(0, s.Length - 2);
             return seq;
         }
 
