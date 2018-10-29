@@ -114,7 +114,7 @@ public class Editor : MonoBehaviour
         _customGates = new Dictionary<string, QCS.Gate>();
 
         GameMode.gates.ForEach(AddDefaultGate);
-		GameMode.customGates.ForEach (AddCustomGateToMenu);
+		GameMode.customGates.ForEach(AddCustomGateToMenu);
 
 		circuits = GameMode.circuits;
 
@@ -219,6 +219,12 @@ public class Editor : MonoBehaviour
     {
         resultHeader.GetComponent<Text>().text = text;
     }
+
+    public void SetResultSize(int size)
+    {
+        resultHeader.GetComponent<Text>().fontSize = size;
+    }
+
 
 
     // Setting panel

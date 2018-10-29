@@ -405,7 +405,7 @@ namespace QCS
 	     */
          
         /// <summary>
-        /// Retourne la liste de portes correspondant à un ligne.
+        /// Retourne la liste de portes correspondant à une ligne.
         /// </summary>
         /// <param name="rowIndex"></param>
         /// <returns></returns>
@@ -845,7 +845,7 @@ namespace QCS
         }
 
         /// <summary>
-        /// Convertit le circuit en porte (produit matriciel des portes représenttant les lignes).
+        /// Convertit le circuit en porte (produit matriciel des portes représentant les lignes).
         /// </summary>
         /// <returns>Gate</returns>
         public Gate GetCircuitGate()
@@ -854,7 +854,7 @@ namespace QCS
         }
 
         /// <summary>
-        /// Convertit le circuit en porte (produit matriciel des portes représenttant les lignes)
+        /// Convertit le circuit en porte (produit matriciel des portes représentant les lignes)
         /// </summary>
         /// <param name="name"></param>
         /// <returns>Gate</returns>

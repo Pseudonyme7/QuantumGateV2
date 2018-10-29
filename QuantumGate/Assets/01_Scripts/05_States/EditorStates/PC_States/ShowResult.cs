@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Etat pour montrer le résultat du circuit quantique jusqu'a la ligne _row.
@@ -30,13 +31,14 @@ namespace PC_States
 
     public override void OnEnter()
     {
+        
         string res, seq;
         int taille;
         Debug.Log("ShowResult");
         //context.SetResultHeader("Result of row : " + _row);
         context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
             res = context.currentCircuit.Evaluate(_row).ToString();
-        seq = context.currentCircuit.Evaluate(_row).Sequence();
+            seq = context.currentCircuit.Evaluate(_row).Sequence();
            /* if (seq[0]=0 && seq[1] = 0 && seq[2] = 0)
             GameObject ball1 = context.CreateBlackBall(268, 200, (float)0.3);
             GameObject ball2 = context.CreateBlackBall(300, 200, (float)0.3);
@@ -60,12 +62,22 @@ namespace PC_States
             */
             taille = res.Length;
             // A revoir si y a le temps
-            
+            if(taille > 50){
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f)*1.1f);
+                context.SetResultSize(25);
+            }
+            if(taille > 30 && taille <= 50){
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f));
-  
+                context.SetResultSize(30);
+            }
+            if(taille <= 30){
+                context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f)*0.7f);//taille du nuage
+                context.SetResultSize(50);// Modification du text de la boite des resultats
+            }
             
-            // message de test pour afficher la taille du résultat dans la console
-            Debug.Log("taille ="+ taille);
+            
+
+            Debug.Log("taille ="+ taille);// message de test pour afficher la taille du résultat dans la console
             context.ShowResultPanel(true);
 
     }
