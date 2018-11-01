@@ -36,7 +36,7 @@ namespace Smartphone_States
             //context.SetResultHeader("Result of row : " + _row);
             context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
             res = context.currentCircuit.Evaluate(_row).ToString();
-            seq = context.currentCircuit.Evaluate(_row).Sequence();
+            //seq = context.currentCircuit.Evaluate(_row).Sequence();
             /* if (seq[0]=0 && seq[1] = 0 && seq[2] = 0)
             GameObject ball1 = context.CreateBlackBall(268, 200, (float)0.3);
             GameObject ball2 = context.CreateBlackBall(300, 200, (float)0.3);
