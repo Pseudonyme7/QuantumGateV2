@@ -3377,7 +3377,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1889425418}
+  - {fileID: 999424471}
   - {fileID: 1888172349}
   m_Father: {fileID: 1064629109}
   m_RootOrder: 2
@@ -5561,6 +5561,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968115568}
+--- !u!4 &999424471 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: a74c48387e9597c4b89c0e9319df9474, type: 3}
+  m_PrefabInternal: {fileID: 1889425417}
 --- !u!1 &1030865407
 GameObject:
   m_ObjectHideFlags: 0
@@ -9585,10 +9589,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a74c48387e9597c4b89c0e9319df9474, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1889425418 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1889425417}
 --- !u!1 &1905418762 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1173581587822398, guid: 88f792ad8edb195438e6af383cb1d5ba,
@@ -10036,12 +10036,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 102900000, guid: c76b7778d79c29747946d7fc9d19d666,
-        type: 3}
+      objectReference: {fileID: 1905418764}
     - target: {fileID: 114227837175889876, guid: 88f792ad8edb195438e6af383cb1d5ba,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: OnClick
       objectReference: {fileID: 0}
     - target: {fileID: 114227837175889876, guid: 88f792ad8edb195438e6af383cb1d5ba,
         type: 2}
