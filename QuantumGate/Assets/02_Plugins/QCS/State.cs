@@ -79,25 +79,7 @@ namespace QCS
             return s;
         }
 
-		public string BruteForce(string res)
-        {
-			string output1 = res.Replace ("|000>", "|<sprite=1><sprite=1><sprite=1>");
-			string output2 = output1.Replace ("|001>", "|<sprite=1><sprite=1><sprite=0>");
-			string output3 = output2.Replace ("|010>", "|<sprite=1><sprite=0><sprite=1>");
-			string output4 = output3.Replace ("|011>", "|<sprite=1><sprite=0><sprite=0>");
-			string output5 = output4.Replace ("|100>", "|<sprite=0><sprite=1><sprite=1>");
-			string output6 = output5.Replace ("|101>", "|<sprite=0><sprite=1><sprite=0>");
-			string output7 = output6.Replace ("|110>", "|<sprite=0><sprite=0><sprite=1>");
-			string output8 = output7.Replace ("|111>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output9 = output8.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output10 = output9.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output11 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output12 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output13 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output14 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			//string output15 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-			return output8;
-        }
+
 
         public bool Equals(State state)
         {
