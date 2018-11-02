@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Etat pour montrer le résultat du circuit quantique jusqu'a la ligne _row.
@@ -36,14 +37,20 @@ namespace PC_States
         int taille;
         Debug.Log("ShowResult");
         //context.SetResultHeader("Result of row : " + _row);
-        context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
+        //context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
             res = context.currentCircuit.Evaluate(_row).ToString();
             seq = context.currentCircuit.Evaluate(_row).Sequence();
-           /* if (seq[0]=0 && seq[1] = 0 && seq[2] = 0)
-            GameObject ball1 = context.CreateBlackBall(268, 200, (float)0.3);
-            GameObject ball2 = context.CreateBlackBall(300, 200, (float)0.3);
-            GameObject ball3 = context.CreateBlackBall(332, 200, (float)0.3);
+            context.SetResultat(res);
+        // CAS NUMERO 1
+           if (   (seq[0] == '1') &&    (seq[1] == '1') &&  (seq[2] == '1') ){
+                if(res.Length < 15){
+                    GameObject ball1 = context.CreateBlackBall(0, 0, (float)0.3);
+                    GameObject ball2 = context.CreateBlackBall(32, 0, (float)0.3);
+                    GameObject ball3 = context.CreateBlackBall(64, 0, (float)0.3);
+                    }
+           }
 
+            /*
             GameObject ball4 = context.CreateBlackBall(268, 150, (float)0.3);
             GameObject ball5 = context.CreateBlackBall(300, 150, (float)0.3);
             GameObject ball6 = context.CreateBlackBall(332, 150, (float)0.3);

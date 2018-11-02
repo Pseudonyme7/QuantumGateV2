@@ -91,7 +91,7 @@ namespace QCS
                 if (p > 0)
                 {
                    
-                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + "." + Convert.ToString(i, 2).PadLeft(n, '0') + " + ";
+                    s += String.Format("{0:0.00}", Math.Sqrt(p)) + "." + Convert.ToString(i, 2).PadLeft(n, '0') + " +";
 
                     seq += Convert.ToString(i, 2);
                 }

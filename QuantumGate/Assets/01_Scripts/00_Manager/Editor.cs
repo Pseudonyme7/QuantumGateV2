@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Editor : MonoBehaviour
 {
@@ -26,6 +28,10 @@ public class Editor : MonoBehaviour
     private GameObject gatesMenu;
     [SerializeField]
     private GameObject settingsPanel;
+    [SerializeField]
+    private TextMeshProUGUI RB;
+    
+    
 
     //BWaaba
     [SerializeField]
@@ -104,12 +110,14 @@ public class Editor : MonoBehaviour
     /// </summary>
     public GridBoard gridBoard;
 
+
+    
     void Start()
     {
         HidePanels();
 
         
-
+        
         _defaultGates = new Dictionary<string, QCS.Gate>();
         _customGates = new Dictionary<string, QCS.Gate>();
 
@@ -218,6 +226,12 @@ public class Editor : MonoBehaviour
     public void SetResultText(string text)
     {
         resultHeader.GetComponent<Text>().text = text;
+    }
+
+    public void SetResultat(string text)
+    {
+        RB = GetComponent<TextMeshProUGUI> ();
+        RB.text = text; 
     }
 
     public void SetResultSize(int size)
