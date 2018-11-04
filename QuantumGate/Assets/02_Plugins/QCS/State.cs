@@ -79,7 +79,7 @@ namespace QCS
             return s;
         }
 
-		public string BruteForce(string res)
+		/*public string BruteForce(string res)
         {
 			string output1 = res.Replace ("|000>", "|<sprite=1><sprite=1><sprite=1>");
 			string output2 = output1.Replace ("|001>", "|<sprite=1><sprite=1><sprite=0>");
@@ -97,7 +97,7 @@ namespace QCS
 			//string output14 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
 			//string output15 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
 			return output8;
-        }
+        }*/
 
         public bool Equals(State state)
         {

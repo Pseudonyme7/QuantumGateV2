@@ -57,6 +57,8 @@ public class Editor : MonoBehaviour
     public GameObject whiteBall;
     public GameObject blackBall;
 	public TextMeshProUGUI Texte;
+	public GameObject tip1;
+	public GameObject tip2;
 
     private EditorState _currentState;
     public EditorState CurrentState
@@ -209,7 +211,17 @@ public class Editor : MonoBehaviour
     }
 
 
+	public void SetTipsDown()
+	{
+		tip1.SetActive (false);
+		tip2.SetActive (false);
+	}
 
+	public void SetTipsUp()
+	{
+		tip1.SetActive (true);
+		tip2.SetActive (true);
+	}
 
 
     public void SetResultHeader(string header)
@@ -222,6 +234,7 @@ public class Editor : MonoBehaviour
     {
         //resultHeader.GetComponent<Text>().text = text;
 		Texte.GetComponent<TextMeshProUGUI>().text = text;
+		SetTipsDown ();
     }
 
 	public string BruteForce(string res)
@@ -243,7 +256,7 @@ public class Editor : MonoBehaviour
 		//string output15 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
 		return output8;
 	}
-
+	// Dimension du text final
     public void SetResultSize(int size)
     {
         resultHeader.GetComponent<Text>().fontSize = size;
@@ -268,10 +281,15 @@ public class Editor : MonoBehaviour
 
     public void ShowGatesMenuPanel(bool active)
     {
-        if (active)
-            gatesMenu.GetComponent<OpenCloseMenu>().Open();
-        else
-            gatesMenu.GetComponent<OpenCloseMenu>().Close();
+		if (active) {
+			gatesMenu.GetComponent<OpenCloseMenu> ().Open ();
+			SetTipsDown ();
+		} 
+
+		else {
+			gatesMenu.GetComponent<OpenCloseMenu> ().Close ();
+			SetTipsUp ();
+		}
     }
 
     public void AddDefaultGate(QCS.Gate gate)

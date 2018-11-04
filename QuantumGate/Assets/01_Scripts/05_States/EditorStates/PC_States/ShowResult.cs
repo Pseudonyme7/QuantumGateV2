@@ -33,7 +33,7 @@ namespace PC_States
     {
         
         string res, seq, realres;
-        int taille, i;
+			int taille;
         Debug.Log("ShowResult");
         //context.SetResultHeader("Result of row : " + _row);
         //context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
