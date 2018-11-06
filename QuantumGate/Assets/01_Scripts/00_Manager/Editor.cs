@@ -166,7 +166,7 @@ public class Editor : MonoBehaviour
             panel.SetActive(false);
     }
 
-    // Result panel
+    
 	/*
 	 * 
 ██╗     ███████╗███████╗     ██████╗ █████╗ ██╗     ██╗     ██████╗  █████╗  ██████╗██╗  ██╗███████╗
@@ -185,47 +185,13 @@ public class Editor : MonoBehaviour
 ╚═╝╚══════╝╚══════╝    ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝        ╚═════╝  ╚═════╝       ╚═╝   
                                                                                              
 */
+
+	// Display du Result panel
     public void ShowResultPanel(bool active)
     {
-
         resultPanel.SetActive(active);
-
-        whiteBall.SetActive(false);
-        blackBall.SetActive(false);
-        //GameObject ball1 = CreateBlackBall(400,               2, (float)0.3);
-        //GameObject ball3 = CreateBlackBall(400,               2, (float)0.3);
-
-        //GameObject ball2 = CreateWhiteBall(3,               2,  (float)0.3);
-        //GameObject ball4 = CreateWhiteBall(5,               2, (float)0.3);
-
     }
 
-    public GameObject CreateWhiteBall(float x , float y , float a)
-    {
-
-        GameObject wBall = Instantiate(whiteBall);
-
-        wBall.transform.SetParent(resultPanel.transform);
-        
-        wBall.transform.localPosition =new Vector3(x, y, 0);
-        wBall.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * a;
-        wBall.SetActive(true);
-        //wBall.transform.SetParent(resultPanel.transform);
-        return wBall;
-    }
-
-
-    public GameObject CreateBlackBall(float x, float y, float a)
-    {
-        GameObject bBall = Instantiate(blackBall);
-        bBall.transform.SetParent(resultPanel.transform);
-        bBall.SetActive(true);
-        bBall.transform.localPosition= new Vector3(x, y, 0);
-        bBall.transform.localScale = new Vector3 ( 1.0f , 1.0f, 1.0f )* a;
-        
-        
-        return bBall;
-    }
 
 
 	public void SetTipsDown()
@@ -254,6 +220,14 @@ public class Editor : MonoBehaviour
 		SetTipsDown ();
     }
 
+	// Dimension du text final
+	public void SetResultSize(int size)
+	{
+		resultHeader.GetComponent<Text>().fontSize = size;
+	}
+
+
+
 	public string BruteForce(string res)
 	{
 		string output1 = res.Replace ("|000>", "| <sprite=1><sprite=1><sprite=1>>");
@@ -273,11 +247,6 @@ public class Editor : MonoBehaviour
 		//string output15 = output14.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
 		return output14;
 	}
-	// Dimension du text final
-    public void SetResultSize(int size)
-    {
-        resultHeader.GetComponent<Text>().fontSize = size;
-    }
 
 
 
@@ -520,3 +489,32 @@ public class Editor : MonoBehaviour
 		return _customGates;
 	}
 }
+
+
+/*    public GameObject CreateWhiteBall(float x , float y , float a)
+    {
+
+        GameObject wBall = Instantiate(whiteBall);
+
+        wBall.transform.SetParent(resultPanel.transform);
+        
+        wBall.transform.localPosition =new Vector3(x, y, 0);
+        wBall.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f) * a;
+        wBall.SetActive(true);
+        //wBall.transform.SetParent(resultPanel.transform);
+        return wBall;
+    }
+
+
+    public GameObject CreateBlackBall(float x, float y, float a)
+    {
+        GameObject bBall = Instantiate(blackBall);
+        bBall.transform.SetParent(resultPanel.transform);
+        bBall.SetActive(true);
+        bBall.transform.localPosition= new Vector3(x, y, 0);
+        bBall.transform.localScale = new Vector3 ( 1.0f , 1.0f, 1.0f )* a;
+        
+        
+        return bBall;
+    }
+*/
