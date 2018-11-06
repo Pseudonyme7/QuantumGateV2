@@ -247,14 +247,14 @@ public class Editor : MonoBehaviour
 		string output6 = output5.Replace ("|101>", "| <sprite=0><sprite=1><sprite=0>>");
 		string output7 = output6.Replace ("|110>", "| <sprite=0><sprite=0><sprite=1>>");
 		string output8 = output7.Replace ("|111>", "| <sprite=0><sprite=0><sprite=0>>");
-		//string output9 = output8.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		//string output10 = output9.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		//string output11 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		//string output12 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		//string output13 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		//string output14 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		//string output15 = res.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
-		return output8;
+		string output9 = output8.Replace ("|0>", "|<sprite=1>>");
+		string output10 = output9.Replace ("|1>", "|<sprite=0>>");
+		string output11 = output10.Replace ("|00>", "|<sprite=1><sprite=1>>");
+		string output12 = output11.Replace ("|01>", "|<sprite=1><sprite=0>>");
+		string output13 = output12.Replace ("|10>", "|<sprite=0><sprite=1>>");
+		string output14 = output13.Replace ("|11>", "|<sprite=0><sprite=0>>");
+		//string output15 = output14.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
+		return output14;
 	}
 	// Dimension du text final
     public void SetResultSize(int size)
