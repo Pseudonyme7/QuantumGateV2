@@ -54,6 +54,7 @@ public class Editor : MonoBehaviour
     public GameObject actionsGatePanel;
     public GameObject actionsGridPanel;
 
+
     public GameObject whiteBall;
     public GameObject blackBall;
 	public TextMeshProUGUI Texte;
@@ -226,6 +227,75 @@ public class Editor : MonoBehaviour
 		resultHeader.GetComponent<Text>().fontSize = size;
 	}
 
+	public int TuyauxLiee (){
+
+		int NbRow = circuits[CurrentCircuitIndex].NbRow;
+		int NbCol = circuits[CurrentCircuitIndex].NbCol;
+
+		//Debug.Log (" Nombre de Col : "+NbCol+" ___ Nombre de Row :"+NbRow);
+
+		int ret = 18283;
+
+		int deux=0;
+		int trois=0;
+
+
+		for (int i = 0; i < NbRow; i++) {
+			for (int j = 0; j < NbCol; j += circuits[CurrentCircuitIndex].rows[i][j].gate.NbEntries){
+
+
+				//Debug.Log (" Nom de la porte : "+circuits [CurrentCircuitIndex].rows [i] [j].gate.Name);
+				//Debug.Log (" j = "+ j);
+
+				if (!(circuits [CurrentCircuitIndex].rows[i][j].gate.Name.Equals ("•")) &&
+					!(circuits [CurrentCircuitIndex].rows[i][j].gate.Name.Equals ("1")) &&
+					!(circuits [CurrentCircuitIndex].rows[i][j].gate.Name.Equals ("X")) &&
+					!(circuits [CurrentCircuitIndex].rows[i][j].gate.Name.Equals ("H"))) {
+
+					if (circuits [CurrentCircuitIndex].rows [i] [j].gate.NbEntries == 3) {
+						deux = 1;
+						trois = 1;
+					} else {
+						if (j == 0)
+							deux = 1;
+						if (j == 1)
+							trois = 1;
+					}
+				}
+
+			}	
+		}
+
+		if (deux == 1 && trois == 1)
+			return 123;
+		if (deux == 1 )
+			return 1283;
+		if (trois == 1)
+			return 1823;
+
+		return ret;
+	}
+
+
+
+	public int TuyauSel(float pos)
+	{
+		int TuyauSelectionne = 0 ;
+
+
+		if(pos < 400)
+			TuyauSelectionne=1;
+		
+		if(pos == 400)
+			TuyauSelectionne=2;
+		
+		if(pos > 400)
+			TuyauSelectionne=3;
+
+		return TuyauSelectionne;
+
+		Debug.Log ("TuyauSelectionne = "+TuyauSelectionne );
+	}
 
 
 	public string BruteForce(string res)
@@ -247,6 +317,151 @@ public class Editor : MonoBehaviour
 		//string output15 = output14.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
 		return output14;
 	}
+
+	// enumération des cas
+	public int isRelated(int res){
+		if(res == 18283){
+			return 1;
+		}
+
+		if(res == 1283){
+			return 2;
+		}
+
+		if(res == 1823){
+			return 3;
+		}
+
+		if(res == 123){
+			return 4;
+		}
+
+		if(res == 182){
+			return 5;
+		}
+
+		if(res == 12){
+			return 6;
+		}
+		return 0;
+
+	}
+
+	// Fonction qui prends en arg le num du tuyau sur lequel on a cliqué et qui donne les relations de liaisons des tuyaux
+	public int Choice(int numTuyau, int related){
+		
+		if( related == 1 ){
+			return numTuyau;
+		}
+
+		if( (related == 2) && ( (numTuyau == 1) || (numTuyau == 2)) ){
+			return 12;
+		}
+
+		if( (related == 2) &&  (numTuyau == 3) ){
+			return 3;
+		}
+
+		if( (related == 1) &&  (numTuyau == 2) ){
+			return 2;
+		}
+
+		if( (related == 3) && (numTuyau == 1) ){
+			return 1;
+		}
+
+		if( (related == 3) && ( (numTuyau == 2) || (numTuyau == 3)) ){
+			return 23;
+		}
+
+
+		if(related == 4){
+			return 123;
+		}
+
+		if( related == 5 ){
+			return numTuyau;
+		}
+
+
+		if(related == 6){
+			return 12;
+		}
+		return 0;
+	}
+
+
+
+	// Fonction qui applique le choix sur la string normale il faut ensuite envoyer la chaine dans la fct BruteForce
+	public string ApplyingChoiceOnRes(string resNormal, int choix){
+		if(choix == 12){
+			string modif1 = resNormal.Replace ("|000>", "|00>");
+			string modif2 = modif1.Replace ("|001>", "|00>");
+			string modif3 = modif2.Replace ("|010>", "|01>");
+			string modif4 = modif3.Replace ("|011>", "|01>");
+			string modif5 = modif4.Replace ("|100>", "|10>");
+			string modif6 = modif5.Replace ("|101>", "|10>");
+			string modif7 = modif6.Replace ("|110>", "|11>");
+			string modif8 = modif7.Replace ("|111>", "|11>");
+			return modif8;
+		}
+
+		if(choix == 2){
+			string modif1 = resNormal.Replace ("|000>", "|0>");
+			string modif2 = modif1.Replace ("|001>", "|0>");
+			string modif3 = modif2.Replace ("|010>", "|1>");
+			string modif4 = modif3.Replace ("|011>", "|1>");
+			string modif5 = modif4.Replace ("|100>", "|0>");
+			string modif6 = modif5.Replace ("|101>", "|0>");
+			string modif7 = modif6.Replace ("|110>", "|1>");
+			string modif8 = modif7.Replace ("|111>", "|1>");
+			return modif8;
+		}
+
+		if(choix == 1){
+			string modif1 = resNormal.Replace ("|000>", "|0>");
+			string modif2 = modif1.Replace ("|001>", "|0>");
+			string modif3 = modif2.Replace ("|010>", "|0>");
+			string modif4 = modif3.Replace ("|011>", "|0>");
+			string modif5 = modif4.Replace ("|100>", "|1>");
+			string modif6 = modif5.Replace ("|101>", "|1>");
+			string modif7 = modif6.Replace ("|110>", "|1>");
+			string modif8 = modif7.Replace ("|111>", "|1>");
+			return modif8;
+		}
+
+		if(choix == 3){
+			string modif1 = resNormal.Replace ("|000>", "|0>");
+			string modif2 = modif1.Replace ("|001>", "|1>");
+			string modif3 = modif2.Replace ("|010>", "|0>");
+			string modif4 = modif3.Replace ("|011>", "|1>");
+			string modif5 = modif4.Replace ("|100>", "|0>");
+			string modif6 = modif5.Replace ("|101>", "|1>");
+			string modif7 = modif6.Replace ("|110>", "|0>");
+			string modif8 = modif7.Replace ("|111>", "|1>");
+			return modif8;
+		}
+
+		if(choix == 123){
+			return resNormal;
+		}
+
+		if(choix == 23){
+			string modif1 = resNormal.Replace ("|000>", "|00>");
+			string modif2 = modif1.Replace ("|001>", "|01>");
+			string modif3 = modif2.Replace ("|010>", "|10>");
+			string modif4 = modif3.Replace ("|011>", "|11>");
+			string modif5 = modif4.Replace ("|100>", "|00>");
+			string modif6 = modif5.Replace ("|101>", "|01>");
+			string modif7 = modif6.Replace ("|110>", "|10>");
+			string modif8 = modif7.Replace ("|111>", "|11>");
+			return modif8;
+		}
+		return " ";
+
+	}
+
+
 
 
 

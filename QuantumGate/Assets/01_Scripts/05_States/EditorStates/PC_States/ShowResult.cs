@@ -17,61 +17,52 @@ namespace PC_States
     /// Etat precedent
     /// </summary>
     private EditorState _previousState;
+		private GateObject _selectedGate;
 
     /// <summary>
     /// </summary>
     /// <param name="context">Le SandBoxManager qui est le contexte du jeu</param>
     /// <param name="row">Numero de la ligne où l'evaluation du circuit s'arrete</param>
     /// <param name="previousState">Etat precedent</param>
-    public ShowResult(Editor context, int row, EditorState previousState) : base(context)
+		public ShowResult(Editor context, int row, EditorState previousState, GateObject selectedGate) : base(context)
     {
         _row = row;
         _previousState = previousState;
+		_selectedGate  = selectedGate;
     }
 	
 
     public override void OnEnter()
     {
         
-        string res, seq, realres;
-			int taille;
-        Debug.Log("ShowResult");
+        string res, res1, realres;
+			int taille, cas, codeLiaison, choix = 0, numTuyau;
+			float coord;
+			Debug.Log("ShowResult");
         //context.SetResultHeader("Result of row : " + _row);
         //context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
 
             res = context.currentCircuit.Evaluate(_row).ToString();
-            //seq = context.currentCircuit.Evaluate(_row).Sequence();
-			realres = context.BruteForce(res);
+			Vector3 pos = context.cam.WorldToScreenPoint(_selectedGate.pipes[0].transform.position);
+			coord = pos.x;
+			numTuyau = context.TuyauSel (coord);
+			codeLiaison = context.TuyauxLiee();//MARCHE BIEN
+			cas = context.isRelated (codeLiaison);// MARCHE BIEN
+			choix = context.Choice (numTuyau, cas);//MARCHE BIEN
+
+			res1 = context.ApplyingChoiceOnRes(res, choix);
+
+			realres = context.BruteForce(res1);
 
 
-			context.SetResultText (realres);
+
+			Debug.Log("chaine1 ="+ res1);
+			Debug.Log("chaine2 ="+ realres);
+			context.SetResultText (res1 );
             taille = res.Length;
-			/*
- █████╗ ███████╗███████╗██╗ ██████╗██╗  ██╗ █████╗  ██████╗ ███████╗     █████╗     ██████╗  ██████╗ ███████╗███████╗███████╗██████╗ 
-██╔══██╗██╔════╝██╔════╝██║██╔════╝██║  ██║██╔══██╗██╔════╝ ██╔════╝    ██╔══██╗    ██╔══██╗██╔═══██╗██╔════╝██╔════╝██╔════╝██╔══██╗
-███████║█████╗  █████╗  ██║██║     ███████║███████║██║  ███╗█████╗      ███████║    ██████╔╝██║   ██║███████╗███████╗█████╗  ██████╔╝
-██╔══██║██╔══╝  ██╔══╝  ██║██║     ██╔══██║██╔══██║██║   ██║██╔══╝      ██╔══██║    ██╔══██╗██║   ██║╚════██║╚════██║██╔══╝  ██╔══██╗
-██║  ██║██║     ██║     ██║╚██████╗██║  ██║██║  ██║╚██████╔╝███████╗    ██║  ██║    ██████╔╝╚██████╔╝███████║███████║███████╗██║  ██║
-╚═╝  ╚═╝╚═╝     ╚═╝     ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝    ╚═╝  ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝
-                                                                                                                                     
 
-███████╗██╗███╗   ██╗ ██████╗ ███╗   ██╗    ██████╗  █████╗ ██████╗ ██╗      ██████╗     
-██╔════╝██║████╗  ██║██╔═══██╗████╗  ██║    ██╔══██╗██╔══██╗██╔══██╗██║     ██╔═══██╗    
-███████╗██║██╔██╗ ██║██║   ██║██╔██╗ ██║    ██████╔╝███████║██████╔╝██║     ██║   ██║    
-╚════██║██║██║╚██╗██║██║   ██║██║╚██╗██║    ██╔═══╝ ██╔══██║██╔══██╗██║     ██║   ██║    
-███████║██║██║ ╚████║╚██████╔╝██║ ╚████║    ██║     ██║  ██║██████╔╝███████╗╚██████╔╝    
-╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═╝     ╚═╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝     
-                                                                                         
 
-██████╗  █████╗ ███████╗     ██████╗ ██████╗ ███╗   ██╗████████╗███████╗███╗   ██╗████████╗
-██╔══██╗██╔══██╗██╔════╝    ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝████╗  ██║╚══██╔══╝
-██████╔╝███████║███████╗    ██║     ██║   ██║██╔██╗ ██║   ██║   █████╗  ██╔██╗ ██║   ██║   
-██╔═══╝ ██╔══██║╚════██║    ██║     ██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██║╚██╗██║   ██║   
-██║     ██║  ██║███████║    ╚██████╗╚██████╔╝██║ ╚████║   ██║   ███████╗██║ ╚████║   ██║   
-╚═╝     ╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝   ╚═╝   
-                                                                                           
 
-            */
 			// SCALING DU RESULTAT UNE EQUIPE DOIT BOSSER DESSUS AFIN D'AVOIR UN RESULTAT IMPEC SINON PABLO SERA PAS CONTENT
             if(taille > 50){
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f)*1.1f);

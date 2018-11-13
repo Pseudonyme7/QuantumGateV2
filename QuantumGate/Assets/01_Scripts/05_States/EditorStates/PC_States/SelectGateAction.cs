@@ -72,7 +72,7 @@ namespace PC_States
 
             int row = gateStruct.row;
 
-            context.CurrentState = new ShowResult(context, row, _previousState);
+			context.CurrentState = new ShowResult(context, row, _previousState, _selectedGate);
         }
 
         public void PositionPanel()
@@ -82,5 +82,7 @@ namespace PC_States
             screenPos.z = 0;
             context.SetActionGatePanelPosition(screenPos);
         }
+
+
     }
 }
