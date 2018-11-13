@@ -54,6 +54,7 @@ namespace PC_States
 
 			realres = context.BruteForce(res1);
 
+			context.SetSprite (2);
 
 
 			Debug.Log("chaine1 ="+ res1);

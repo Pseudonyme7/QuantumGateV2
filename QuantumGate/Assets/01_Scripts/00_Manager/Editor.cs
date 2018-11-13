@@ -55,6 +55,8 @@ public class Editor : MonoBehaviour
     public GameObject actionsGridPanel;
 
 
+
+
     public GameObject whiteBall;
     public GameObject blackBall;
 	public TextMeshProUGUI Texte;
@@ -168,24 +170,7 @@ public class Editor : MonoBehaviour
     }
 
     
-	/*
-	 * 
-██╗     ███████╗███████╗     ██████╗ █████╗ ██╗     ██╗     ██████╗  █████╗  ██████╗██╗  ██╗███████╗
-██║     ██╔════╝██╔════╝    ██╔════╝██╔══██╗██║     ██║     ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔════╝
-██║     █████╗  ███████╗    ██║     ███████║██║     ██║     ██████╔╝███████║██║     █████╔╝ ███████╗
-██║     ██╔══╝  ╚════██║    ██║     ██╔══██║██║     ██║     ██╔══██╗██╔══██║██║     ██╔═██╗ ╚════██║
-███████╗███████╗███████║    ╚██████╗██║  ██║███████╗███████╗██████╔╝██║  ██║╚██████╗██║  ██╗███████║
-╚══════╝╚══════╝╚══════╝     ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝
-                                                                                                    
 
-██╗██╗     ███████╗    ███████╗ ██████╗ ███╗   ██╗████████╗     ██████╗ ██╗   ██╗    ██████╗ 
-██║██║     ██╔════╝    ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝    ██╔═══██╗██║   ██║    ╚════██╗
-██║██║     ███████╗    ███████╗██║   ██║██╔██╗ ██║   ██║       ██║   ██║██║   ██║      ▄███╔╝
-██║██║     ╚════██║    ╚════██║██║   ██║██║╚██╗██║   ██║       ██║   ██║██║   ██║      ▀▀══╝ 
-██║███████╗███████║    ███████║╚██████╔╝██║ ╚████║   ██║       ╚██████╔╝╚██████╔╝      ██╗   
-╚═╝╚══════╝╚══════╝    ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝        ╚═════╝  ╚═════╝       ╚═╝   
-                                                                                             
-*/
 
 	// Display du Result panel
     public void ShowResultPanel(bool active)
@@ -227,6 +212,17 @@ public class Editor : MonoBehaviour
 		resultHeader.GetComponent<Text>().fontSize = size;
 	}
 
+
+
+	public void SetSprite(int spriteNum){	
+		if(spriteNum == 1)
+			resultPanel.transform.GetComponent<Image>().overrideSprite = Resources.Load<Sprite> ("nuageGauche");
+		if(spriteNum == 2)
+			resultPanel.transform.GetComponent<Image>().overrideSprite = Resources.Load<Sprite> ("nuageBasDroite");
+		if(spriteNum == 3)
+			resultPanel.transform.GetComponent<Image>().overrideSprite = Resources.Load<Sprite> ("nuageGauche");
+	}
+	// Renvoie un code de liaison des tuyaux
 	public int TuyauxLiee (){
 
 		int NbRow = circuits[CurrentCircuitIndex].NbRow;
@@ -317,6 +313,11 @@ public class Editor : MonoBehaviour
 		//string output15 = output14.Replace ("|000>", "|<sprite=0><sprite=0><sprite=0>");
 		return output14;
 	}
+
+	/*public string FormatLivre(string entree){
+	
+		string output1 = entree.Replace ("", "");
+	}*/
 
 	// enumération des cas
 	public int isRelated(int res){
