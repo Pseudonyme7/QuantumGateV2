@@ -58,7 +58,7 @@ namespace PC_States
 
 			Debug.Log("chaine1 ="+ res1);
 			Debug.Log("chaine2 ="+ realres);
-			context.SetResultText (res1 );
+			context.SetResultText (realres );
             taille = res.Length;
 
 
