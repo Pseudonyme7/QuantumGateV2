@@ -1,13 +1,1 @@
-Règles du commit/push :
-	- Un push ne peut etre effectué qu'après une série de tests sur le code en local
-	- Un push ne peut etre effectué qu'après accord d'au moins 1 autre membre du groupe ayant droit de veto
-	- Un push ne peut etre effectué que si les modifications sont explicitées via écrit 
-	(concernant un résumé de la modification par ex : ajout d'un bouton exit ) et via 
-	oral il serait bien de dire au membres du groupe ce qui a été modifié/testé etc
-	
-	
-	
-CES REGLES NE CONCERNE QUE LE PUSH IMPLIQUANT DES MODIFICATIONS DE CODE OU BIEN D'OBJETS
-RELATIFS AU BON FONCTIONNEMENT DE L'APPLICATION TOUT PUSH CONCERNANT L'AJOUT DE COMMENTAIRES
-DANS LE CODE OU ENCORE DE FICHIERS TEXTES AINSI QUE DES AJOUTS MINEURS NE SONT PAS SOUMIS A CES
-REGLES.
+﻿
