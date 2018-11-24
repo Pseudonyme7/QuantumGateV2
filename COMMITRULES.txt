@@ -5,7 +5,7 @@ Règles du commit/push :
 	(concernant un résumé de la modification par ex : ajout d'un bouton exit ) et via 
 	oral il serait bien de dire au membres du groupe ce qui a été modifié/testé etc
 	
-	Veto ( Abbas, Mehdy )
+	
 	
 CES REGLES NE CONCERNE QUE LE PUSH IMPLIQUANT DES MODIFICATIONS DE CODE OU BIEN D'OBJETS
 RELATIFS AU BON FONCTIONNEMENT DE L'APPLICATION TOUT PUSH CONCERNANT L'AJOUT DE COMMENTAIRES
