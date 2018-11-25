@@ -54,8 +54,10 @@ namespace QCS
         public static IEnumerable<T> Take<T>(int n, IEnumerable<T> list)
         {
             IEnumerator<T> iterator = list.GetEnumerator();
-            for (int i = 0; i < n && iterator.MoveNext(); i++)
-                yield return iterator.Current;
+			for (int i = 0; i < n && iterator.MoveNext (); i++) {
+				//UnityEngine.Debug.Log
+				yield return iterator.Current;
+			}
         }
 
         public static IEnumerable<TResult> Map<T, TResult>(Func<T, TResult> func, IEnumerable<T> list)

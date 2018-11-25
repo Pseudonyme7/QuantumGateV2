@@ -50,11 +50,6 @@ namespace PC_States
 			cas = context.isRelated (codeLiaison);// MARCHE BIEN
 			choix = context.Choice (numTuyau, cas);//MARCHE BIEN
 
-            if(numTuyau == 1)
-                context.SetSprite (1);
-
-            if(numTuyau == 3)
-                context.SetSprite (2);
 
 			res1 = context.ApplyingChoiceOnRes(res, choix);
 
