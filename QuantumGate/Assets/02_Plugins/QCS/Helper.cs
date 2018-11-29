@@ -55,15 +55,15 @@ namespace QCS
         {
             IEnumerator<T> iterator = list.GetEnumerator();
 			for (int i = 0; i < n && iterator.MoveNext (); i++) {
-				//UnityEngine.Debug.Log
 				yield return iterator.Current;
 			}
         }
 
         public static IEnumerable<TResult> Map<T, TResult>(Func<T, TResult> func, IEnumerable<T> list)
         {
-            foreach (var i in list)
-                yield return func(i);
+			
+				foreach (var i in list)
+                		yield return func(i);
         }
 
         public static T Reduce<T, U>(T acc, Func<T, U, T> func, IEnumerable<U> list)

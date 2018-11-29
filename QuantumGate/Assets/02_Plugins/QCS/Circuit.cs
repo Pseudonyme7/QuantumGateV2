@@ -854,7 +854,7 @@ namespace QCS
         }
 
         /// <summary>
-        /// Convertit le circuit en porte (produit matriciel des portes représentant les lignes)
+        /// Convertit le circuit en porte (produit matriciel des portes représentant les lignes) Fonction servant a créer des portes  personnalisées
         /// </summary>
         /// <param name="name"></param>
         /// <returns>Gate</returns>
@@ -882,6 +882,8 @@ namespace QCS
         {
             return Evaluate(NbRow - 1);
         }
+
+
 
         /// <summary>
         /// Convertit un circuit en chaine de caratères le représentant
