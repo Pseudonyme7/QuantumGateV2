@@ -73,12 +73,12 @@ namespace QCS
                     
                     //s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
                     s += String.Format("{0:0.00}",amp) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
-					seq +=  this.Vector;
+					//seq +=  this.Vector;
                 }
             }
             UnityEngine.Debug.Log(" "+s);
             s = s.Substring(0, s.Length - 2);
-            return seq;
+            return s;
         }
 
 		public void ToEnd()
