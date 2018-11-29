@@ -31,17 +31,19 @@ namespace PC_States
 		_selectedGate  = selectedGate;
     }
 	
-
+	
+	/// <summary>
+		/// Fonction qui trigger lorsqu'on appuie sur le bonton Play du panel d'action sur le circuit elle display le panel des résultat
+	/// </summary>
     public override void OnEnter()
     {
         
-        string res, res1, realres;
+        string res, res1, realres, test1;
 			int taille, cas, codeLiaison, choix = 0, numTuyau;
 			float coord;
 			Debug.Log("ShowResult");
-        //context.SetResultHeader("Result of row : " + _row);
-        //context.SetResultText(context.currentCircuit.Evaluate(_row).ToString());
-
+			test1 = context.currentCircuit.Evaluate(_row).ToString();
+			Debug.Log("teeeest"+ test1);
             res = context.currentCircuit.Evaluate(_row).ToString();
 			Vector3 pos = context.cam.WorldToScreenPoint(_selectedGate.pipes[0].transform.position);
 			coord = pos.x;
@@ -53,18 +55,23 @@ namespace PC_States
 
 			res1 = context.ApplyingChoiceOnRes(res, choix);
 
-			realres = context.BruteForce(res1);
+			realres = context.ApplyTextMeshPro(res1);
 
 
 
-			Debug.Log("chaine1 ="+ res1);
-			Debug.Log("chaine2 ="+ realres);
+			//Affichage des données manipulées dans la console afin d'avoir une idée de ce qui est fait
+			//Debug.Log("chaine1 ="+ res1);
+			//Debug.Log("chaine2 ="+ realres);
+
 			context.SetResultText (realres );
-            taille = res.Length;
+            
 
 
 
-			// SCALING DU RESULTAT UNE EQUIPE DOIT BOSSER DESSUS AFIN D'AVOIR UN RESULTAT IMPEC SINON PABLO SERA PAS CONTENT
+
+
+			// Section qui sert a redimensionner le nuage en fonction de la taille du resultat à afficher
+			taille = res.Length;
             if(taille > 50){
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f)*1.1f);
                 context.SetResultSize(25);
@@ -80,7 +87,8 @@ namespace PC_States
             
             
 
-            Debug.Log("taille ="+ taille);// message de test pour afficher la taille du résultat dans la console
+            //Debug.Log("taille ="+ taille);// message de test pour afficher la taille du résultat dans la console
+
             context.ShowResultPanel(true);
 
     }

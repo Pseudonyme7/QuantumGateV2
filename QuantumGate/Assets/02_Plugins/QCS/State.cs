@@ -55,7 +55,9 @@ namespace QCS
             }
         }
 
-        // Changement de la fonction de State.cs permettant un affichage des amplitudes sous forme de somme   
+		/// <summary>
+		///  Fonction qui se charge d'afficher le résultat sous forme de string avec les amplitudes
+		/// </summary>  
         public override string ToString()
         {
             string s = "";
@@ -71,14 +73,23 @@ namespace QCS
                     
                     //s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
                     s += String.Format("{0:0.00}",amp) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
-                    seq += Convert.ToString(i, 2).PadLeft(n, '0');
+					seq +=  this.Vector;
                 }
             }
             UnityEngine.Debug.Log(" "+s);
             s = s.Substring(0, s.Length - 2);
-            return s;
+            return seq;
         }
 
+		public void ToEnd()
+		{
+			this.EnumeratePossibilities ();
+		}
+
+
+		/// <summary>
+		///  Fonction qui permet de display les résultats sous forme de boules à la manière du livre QisForQuantum il suffit de remplacer ToString() qui est appelée dans ShowResult.cs pour avoir cet affichage
+		/// </summary>
 		public string ToStringBalls()
 		{
 			string s = "";

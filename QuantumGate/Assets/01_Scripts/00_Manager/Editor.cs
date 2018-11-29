@@ -158,11 +158,17 @@ public class Editor : MonoBehaviour
 	 * ###############################################################################################
 	 * ###############################################################################################
 	 */
+	/// <summary>
+	///  Fonction qui prends en argument un Vector3 qui permet de changer la scale de l'objet resultPanel présent dans Sandbox ainsi que les niveaux de la campagne
+	/// </summary>
     public void SetresultPanelScale(Vector3 scale)
     {
         resultPanel.transform.localScale = scale;
     }
- 
+ 	
+	/// <summary>
+	///  Fonction qui cache les panel qui sont dans hiddenPanelAtStart
+	/// </summary>
     private void HidePanels()
     {
         foreach (GameObject panel in hiddenPanelAtStart)
@@ -171,21 +177,27 @@ public class Editor : MonoBehaviour
 
     
 
-
-	// Display du Result panel
+	/// <summary>
+	///  Fonction qui met a true le booleen qui affiche ou non le panel de Resultat
+	/// </summary>
     public void ShowResultPanel(bool active)
     {
         resultPanel.SetActive(active);
     }
 
 
-
+	/// <summary>
+	///  Fonction qui cache les objets presents dans la fonction
+	/// </summary>
 	public void SetTipsDown()
 	{
 		tip1.SetActive (false);
 		tip2.SetActive (false);
 	}
 
+	/// <summary>
+	///  Fonction qui display les objets présents dans la fonction
+	/// </summary>
 	public void SetTipsUp()
 	{
 		tip1.SetActive (true);
@@ -198,22 +210,27 @@ public class Editor : MonoBehaviour
         textHeader.GetComponent<Text>().text = header;
     }
 
-	// TEXT MESH PRO
+	/// <summary>
+	///  Fonction qui accède au text TEXTMESHPRO elle prend une String text en argument qui est le resultat final formatté avec les sprites cf la Doc de TEXTMESHPRO pour plus de détails
+	/// </summary>
     public void SetResultText(string text)
     {
-        //resultHeader.GetComponent<Text>().text = text;
 		Texte.GetComponent<TextMeshProUGUI>().text = text;
 		SetTipsDown ();
     }
 
-	// Dimension du text final
+	/// <summary>
+	///  Fonction qui permet de modifier la taille du text du resultat 
+	/// </summary>
 	public void SetResultSize(int size)
 	{
 		resultHeader.GetComponent<Text>().fontSize = size;
 	}
 
 
-
+	/// <summary>
+	///  Fonction qui permet de remplacer le sprite par un sprite choisi
+	/// </summary>
 	public void SetSprite(int spriteNum){	
 		if(spriteNum == 1)
 			resultPanel.transform.GetComponent<Image>().overrideSprite = Resources.Load<Sprite> ("nuageGauche");
@@ -222,7 +239,12 @@ public class Editor : MonoBehaviour
 		if(spriteNum == 3)
 			resultPanel.transform.GetComponent<Image>().overrideSprite = Resources.Load<Sprite> ("nuageGauche");
 	}
-	// Renvoie un code de liaison des tuyaux
+
+
+	/// <summary>
+	///  Fonction important qui permet de determiner quels tuyaux intéragissent avec les autres elle retourne un int sous forme de 18283 par exemple 8 est le spérateur et 1,2 et 3 sont les tuyaux si la fonction retourne 123 alors les trois tuyaux dont liés
+	/// par des portes les uns les autres si par exemple elle retourne 1823 le tuyau 1 est séparé des autres et 2,3 sont liés
+	/// </summary>
 	public int TuyauxLiee (){
 
 		int NbRow = circuits[CurrentCircuitIndex].NbRow;
@@ -273,7 +295,9 @@ public class Editor : MonoBehaviour
 	}
 
 
-
+	/// <summary>
+	///  Fonction qui prends en argument un float position et qui détermine le tuyau sur lequel on a cliqué
+	/// </summary>
 	public int TuyauSel(float pos)
 	{
 		int TuyauSelectionne = 0 ;
@@ -293,8 +317,10 @@ public class Editor : MonoBehaviour
 		Debug.Log ("TuyauSelectionne = "+TuyauSelectionne );
 	}
 
-
-	public string BruteForce(string res)
+	/// <summary>
+	///  Fonction qui assure le formattage de la chaine de caractères de résultat basique vers une chaine adaptée pour pouvoir display les Boules avec les amplitudes
+	/// </summary>
+	public string ApplyTextMeshPro(string res)
 	{
 		string output1 = res.Replace ("|000>", "| <sprite=1><sprite=1><sprite=1>>");
 		string output2 = output1.Replace ("|001>", "| <sprite=1><sprite=1><sprite=0>>");
@@ -319,7 +345,9 @@ public class Editor : MonoBehaviour
 		string output1 = entree.Replace ("", "");
 	}*/
 
-	// enumération des cas
+	/// <summary>
+	///  Fonction qui en fonction du code de liaison qu'elle recoit retourne un int qui sera utilisé dans la fonction choice selon le cas de figure on determinera quels resultats nous interressent 
+	/// </summary>
 	public int isRelated(int res){
 		if(res == 18283){
 			return 1;
@@ -348,7 +376,9 @@ public class Editor : MonoBehaviour
 
 	}
 
-	// Fonction qui prends en arg le num du tuyau sur lequel on a cliqué et qui donne les relations de liaisons des tuyaux
+	/// <summary>
+	///  Fonction qui prends en argument un int numTuyau qui est le numéro du Tuyau sur lequel on a cliqué et un int related qui donne la relation relative à ce tuyau et elle donne quels sont les tuyaux qui vont donner le resultat attendu
+	/// </summary>
 	public int Choice(int numTuyau, int related){
 		
 		if( related == 1 ){
@@ -393,7 +423,9 @@ public class Editor : MonoBehaviour
 
 
 
-	// Fonction qui applique le choix sur la string normale il faut ensuite envoyer la chaine dans la fct BruteForce
+	/// <summary>
+	///  Fonction qui s'appelle juste avant ApplyingTextMeshPro qui permet de prends uniquement les Qubits qui nous interressent
+	/// </summary>
 	public string ApplyingChoiceOnRes(string resNormal, int choix){
 		if(choix == 12){
 			string modif1 = resNormal.Replace ("|000>", "|00>");
@@ -466,8 +498,9 @@ public class Editor : MonoBehaviour
 
 
 
-    // Setting panel
-
+	/// <summary>
+	///  Fonction qui display le menu paramètres
+	/// </summary>
     public void ShowSettingsPanel(bool active)
     {
         settingsPanel.SetActive(active);
@@ -479,8 +512,9 @@ public class Editor : MonoBehaviour
     }
 
 
-    // Gate panel
-
+	/// <summary>
+	///  Fonction qui display le menu ou se trouvent les portes Quantiques
+	/// </summary>
     public void ShowGatesMenuPanel(bool active)
     {
 		if (active) {
