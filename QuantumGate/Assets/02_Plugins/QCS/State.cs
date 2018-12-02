@@ -68,12 +68,13 @@ namespace QCS
             {
                 double p = (this.Vector[0, i] * this.Vector[0, i]).Real;
                 double amp = this.Vector[0,i].Real;
+
                 if (p > 0)
                 {
                     
                     //s += String.Format("{0:0.00}", Math.Sqrt(p)) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
                     s += String.Format("{0:0.00}",amp) + ".|" + Convert.ToString(i, 2).PadLeft(n, '0') + "> " + " + ";
-					//seq +=  this.Vector;
+					seq +=  this.Vector;
                 }
             }
             UnityEngine.Debug.Log(" "+s);
@@ -81,10 +82,6 @@ namespace QCS
             return s;
         }
 
-		public void ToEnd()
-		{
-			this.EnumeratePossibilities ();
-		}
 
 
 		/// <summary>

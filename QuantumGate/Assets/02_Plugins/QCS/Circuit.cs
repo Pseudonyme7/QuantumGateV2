@@ -13,7 +13,7 @@ namespace QCS
     public class Circuit
     {
         /// <summary>
-        /// Classe regroupant les données d'une entrée au sein d'un cricuit, à savoir sa colone "col" et sa valeur "qubit".
+        /// Classe regroupant les données d'une entrée au sein d'un cricuit, à savoir sa colonne "col" et sa valeur "qubit".
         /// </summary>
         public class EntryStruct
         {
@@ -36,7 +36,7 @@ namespace QCS
         }
 
         /// <summary>
-        /// Classe regroupant les données du'une porte au sein d'un cricuit, à savoir sa ligne "row", sa colone "col" et la porte en question "gate".
+        /// Classe regroupant les données d'une porte au sein d'un cricuit, à savoir sa ligne "row", sa colonne "col" et la porte en question "gate".
         /// </summary>
         public class GateStruct
         {
@@ -85,7 +85,7 @@ namespace QCS
         public ColEventHandler OnRemoveCol;
 
         /// <summary>
-        /// Renvoie le nombre de colones (alias le nombre d'entrées du circuit)
+        /// Renvoie le nombre de colonnes (alias le nombre d'entrées du circuit)
         /// </summary>
         public int NbCol
         {
@@ -157,7 +157,7 @@ namespace QCS
         }
         
         /// <summary>
-        /// Retourne l'EntryStruct de la colone spécifiée
+        /// Retourne l'EntryStruct de la colonne spécifiée
         /// </summary>
         /// <param name="col"></param>
         /// <returns>EntryStruct</returns>
@@ -177,7 +177,7 @@ namespace QCS
         }
 
         /// <summary>
-        /// Méthode permettant de fixer la valeur de l'entrée d'une colone
+        /// Méthode permettant de fixer la valeur de l'entrée d'une colonne
         /// </summary>
         /// <param name="col"></param>
         /// <param name="qubit"></param>
@@ -614,10 +614,10 @@ namespace QCS
             return true;
         }
         /// <summary>
-        /// Essaie d'insérer une colone vide à l'index spécifié, renvoie True si réussie, False sinon.
-        /// Associe à la colone insérée une entrée de valeur zéro.
-        /// Echoue dans le cas ou la colone en question passerait au milieu d'une porte à plusieurs entrées.
-        /// Appelle l'evennement OnInsertCol sur la colone ainsi insérée.
+        /// Essaie d'insérer une colonne vide à l'index spécifié, renvoie True si réussie, False sinon.
+        /// Associe à la colonne insérée une entrée de valeur zéro.
+        /// Echoue dans le cas ou la colonne en question passerait au milieu d'une porte à plusieurs entrées.
+        /// Appelle l'evennement OnInsertCol sur la colonne ainsi insérée.
         /// </summary>
         /// <param name="index"></param>
         /// <returns>bool</returns>
@@ -671,9 +671,9 @@ namespace QCS
             return true;
         }
         /// <summary>
-        /// Essaie de supprime la colone d'index spécifié, renvoie True si réussie, False sinon.
-        /// Echoue dans le cas ou une porte à plusieurs entrées occupe la colone en question.
-        /// Appelle l'évennement OnRemoveCol sur la colone ainsi supprimée.
+        /// Essaie de supprime la colonne d'index spécifié, renvoie True si réussie, False sinon.
+        /// Echoue dans le cas ou une porte à plusieurs entrées occupe la colonne en question.
+        /// Appelle l'évennement OnRemoveCol sur la colonne ainsi supprimée.
         /// </summary>
         /// <param name="index"></param>
         /// <returns>bool</returns>
@@ -738,9 +738,9 @@ namespace QCS
             return true;
         }
         /// <summary>
-        /// Essaie de déplacer la colone source à l'index cible, renvoie True si réussie, False sinon.
-        /// Echoue dans le cas ou une porte à plusieurs entrées occupe la colone source ou que la colone en question passerait au milieu d'une porte à plusieurs entrées à l'index cible.
-        /// Appelle l'évennement OnMoveCol sur chaque colone dont l'index est mis à jour.
+        /// Essaie de déplacer la colonne source à l'index cible, renvoie True si réussie, False sinon.
+        /// Echoue dans le cas ou une porte à plusieurs entrées occupe la colonne source ou que la colonne en question passerait au milieu d'une porte à plusieurs entrées à l'index cible.
+        /// Appelle l'évennement OnMoveCol sur chaque colonne dont l'index est mis à jour.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="target"></param>

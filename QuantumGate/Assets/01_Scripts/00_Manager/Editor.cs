@@ -311,10 +311,10 @@ public class Editor : MonoBehaviour
 		
 		if(pos > 400)
 			TuyauSelectionne=3;
-
+		Debug.Log ("TuyauSelectionne = "+TuyauSelectionne );
 		return TuyauSelectionne;
 
-		Debug.Log ("TuyauSelectionne = "+TuyauSelectionne );
+
 	}
 
 	/// <summary>

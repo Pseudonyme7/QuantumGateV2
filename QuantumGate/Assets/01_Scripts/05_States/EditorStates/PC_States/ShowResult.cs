@@ -17,7 +17,7 @@ namespace PC_States
     /// Etat precedent
     /// </summary>
     private EditorState _previousState;
-		private GateObject _selectedGate;
+	private GateObject _selectedGate;
 
     /// <summary>
     /// </summary>

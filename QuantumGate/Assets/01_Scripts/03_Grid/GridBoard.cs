@@ -588,6 +588,8 @@ public class GridBoard
         }
     }
 
+
+
     public void DeselectCol(int col)
     {
         EntryObject entryObject = GetEntryObject(col);
