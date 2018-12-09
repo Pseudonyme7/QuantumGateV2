@@ -580,13 +580,15 @@ public class GridBoard
     {
         EntryObject entryObject = GetEntryObject(col);
         entryObject.Select();
-
+		Debug.Log ("saluttttt");
         for (int i = 0; i < _circuit.NbRow; i++)
         {
             GateObject gateObject = GetGateObject(i, col);
-            gateObject.Select();
+            gateObject.Select();//aaaaaaaaaaaaaaaaaaaaaaaaa
         }
     }
+
+
 
 
 

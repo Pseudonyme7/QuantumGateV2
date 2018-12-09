@@ -43,11 +43,11 @@ namespace PC_States
     public override void OnEnter()
     {
         
-        string res, res1, realres, test1;
+        string res, res1, realres;
 			int taille, cas, codeLiaison, choix = 0, numTuyau;
 
 			//Debug.Log("ShowResult");
-			test1 = context.currentCircuit.Evaluate(_row).ToString();
+
 			//Debug.Log("teeeest"+ test1);
             res = context.currentCircuit.Evaluate(_row).ToString();
 
@@ -97,7 +97,21 @@ namespace PC_States
 
     }
 
-    public override void OnExit() { context.ShowResultPanel(false); }
+    public override void OnExit() {
+			int i = 0;
+			int j = 0;
+			int row = context.currentCircuit.NbRow;
+			int col = context.currentCircuit.NbCol;
+			for (i = 0; i < row; i++) {
+				for (j = 0; j < col; j++){
+					context.gridBoard.GetGateObject (i, j).Deselect();
+					Debug.Log("AAAAAAAAAAAAAAAAA");
+
+				}
+			}
+			context.ShowResultPanel(false);
+			
+		}
 
     public override void OnBackResultClick() { context.CurrentState = _previousState; }
 

@@ -22,8 +22,8 @@ namespace PC_States
         int row = infos.Item1;
         int col = infos.Item2;
         GateObject selectedGate = context.gridBoard.GetGateObject(row, col);
-
-        context.CurrentState = new SelectGateAction(context, selectedGate, context.CurrentState);
+			//GateObject nextGate = context.gridBoard.GetGateObject(row+1, col);
+			context.CurrentState = new SelectGateAction(context, selectedGate, context.CurrentState);
     }
     public override void OnGridPress(Tuple<int, int, Editor.ClickPosition> infos)
     {

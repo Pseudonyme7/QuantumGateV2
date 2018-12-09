@@ -319,6 +319,7 @@ public class Editor : MonoBehaviour
 		return output14;
 	}
 
+
 	/*public string FormatLivre(string entree){
 	
 		string output1 = entree.Replace ("", "");

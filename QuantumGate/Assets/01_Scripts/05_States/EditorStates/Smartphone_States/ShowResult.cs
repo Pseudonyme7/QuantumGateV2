@@ -36,13 +36,12 @@ namespace Smartphone_States
 
 			string res, res1, realres, test1;
 			int taille, cas, codeLiaison, choix = 0, numTuyau;
-			float coord;
+		
 			Debug.Log("ShowResult");
 			test1 = context.currentCircuit.Evaluate(_row).ToString();
 			Debug.Log("teeeest"+ test1);
 			res = context.currentCircuit.Evaluate(_row).ToString();
-			Vector3 pos = context.cam.WorldToScreenPoint(_selectedGate.pipes[0].transform.position);
-			coord = pos.x;
+
 			numTuyau = _col + 1;
 			codeLiaison = context.TuyauxLiee();//MARCHE BIEN
 			cas = context.isRelated (codeLiaison);// MARCHE BIEN

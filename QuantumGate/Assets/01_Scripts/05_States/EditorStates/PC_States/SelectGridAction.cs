@@ -20,7 +20,7 @@ namespace PC_States
 
         public override void OnEnter()
         {
-            
+			Debug.Log ("saluttttt");
             context.gridBoard.SelectCol(_col);
             PositionPanel();
             context.ShowActionsGridPanel(true);

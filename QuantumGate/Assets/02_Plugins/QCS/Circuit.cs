@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Smartphone_States;
 
 namespace QCS
 {
@@ -176,6 +177,7 @@ namespace QCS
                 action(entries[j]);
         }
 
+
         /// <summary>
         /// Méthode permettant de fixer la valeur de l'entrée d'une colonne
         /// </summary>
@@ -234,11 +236,13 @@ namespace QCS
         /// <param name="action"></param>
         public void ForEachGateStruct(Action<GateStruct> action)
         {
+
             for (int i = 0; i < NbRow; i++)
                 for (int j = 0; j < NbCol; j += rows[i][j].gate.NbEntries)
                     action(rows[i][j]);
         }
-        
+
+
         /// <summary>
         /// Retourne True si l'opération correspondante est garantie de réussir, False sinon (attention à l'atomicité de la transaction).
         /// </summary>

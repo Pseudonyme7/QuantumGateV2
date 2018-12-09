@@ -11,7 +11,6 @@ using UnityEngine.EventSystems;
 public class GateObject : MonoBehaviour
 {
     public QCS.Circuit.GateStruct gateStruct;
-    
     public GameObject body;
     public List<GameObject> pipes;
 
@@ -25,7 +24,7 @@ public class GateObject : MonoBehaviour
 
     public void Select()
     {
-        foreach (GameObject pipe in pipes)
+		foreach (GameObject pipe in pipes)
             pipe.GetComponentInChildren<Renderer>().material = ObjectFactory.pipeSelectedMaterial;
     }
     public void Select(int entry)

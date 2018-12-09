@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using SerializableClass;
 
 namespace PC_States
 {
@@ -8,17 +9,20 @@ namespace PC_States
         private GateObject _selectedGate;
         private EditorState _previousState;
 
-        public SelectGateAction(Editor context, GateObject selectedGate, EditorState previousState)
+
+		public SelectGateAction(Editor context, GateObject selectedGate, EditorState previousState)
             : base(context)
         {
+			//_nextGate = nextGate;
             _selectedGate = selectedGate;
             _previousState = previousState;
         }
 
         public override void OnEnter()
         {
-            Debug.Log("SelectGateAction");
-            _selectedGate.Select();
+			Debug.Log("SelectGateAction"+ _selectedGate.gateStruct.col);
+            _selectedGate.Select();//aaaaaaaaaaaaaaaaaaaaaa
+			//_nextGate.Select();
             PositionPanel();
             context.ShowActionsGatePanel(true);
         }
@@ -29,13 +33,16 @@ namespace PC_States
             PositionPanel();
         }
 
-        public override void OnExit()
+		public override void OnExit()
         {
             GateObject gateObject = _selectedGate.GetComponent<GateObject>();
 
-            gateObject.Deselect();
+			//gateObject.Deselect ();
             context.ShowActionsGatePanel(false);
+
         }
+			
+
 
         public override void OnBackButton() { context.CurrentState = _previousState; }
 
@@ -69,9 +76,59 @@ namespace PC_States
         public override void OnProcessCircuitClick()
         {
             QCS.Circuit.GateStruct gateStruct = _selectedGate.gateStruct;
+			int col = gateStruct.col;// ne pas toucher
+			int numTuyau = col +1;
+			int code = context.TuyauxLiee ();
+			int cas = context.isRelated (code);
+			int choix = context.Choice (numTuyau,cas);
+			Debug.Log ("numTuyau :"+numTuyau+" code:"+ code + " cas: "+ cas +"choix: " + choix);
+			int i = 0;
+			int row = context.currentCircuit.NbRow;
 
-            int row = gateStruct.row;
-			int col = gateStruct.col;
+
+			Debug.Log ("ligne"+ row);
+			Debug.Log ("col"+ context.currentCircuit.NbCol);
+			if(choix == 12){
+				for (i = 0; i < row; i++) {
+					context.gridBoard.GetGateObject (i, 0).Select();
+					context.gridBoard.GetGateObject (i, 1).Select();
+				}
+			}
+
+			if(choix == 2){
+				for (i = 0; i < row; i++) {
+					context.gridBoard.GetGateObject (i, 1).Select();
+
+				}
+			}
+
+			if(choix == 1){
+				for (i = 0; i < row; i++) {
+					context.gridBoard.GetGateObject (i, 0).Select();
+				}
+			}
+
+			if(choix == 3){
+				for (i = 0; i < row; i++) {
+					context.gridBoard.GetGateObject (i, 2).Select();
+				}
+			}
+
+			if(choix == 123){
+				for (i = 0; i < row; i++) {
+					context.gridBoard.GetGateObject (i, 0).Select();
+					context.gridBoard.GetGateObject (i, 1).Select();
+					context.gridBoard.GetGateObject (i, 2).Select();
+				}
+			}
+
+			if(choix == 23){
+				for (i = 0; i < row; i++) {
+					context.gridBoard.GetGateObject (i, 1).Select();
+					context.gridBoard.GetGateObject (i, 2).Select();
+				}
+			}
+
 			context.CurrentState = new ShowResult(context, row, col, _previousState, _selectedGate);
         }
 
