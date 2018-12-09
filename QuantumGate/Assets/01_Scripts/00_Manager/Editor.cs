@@ -290,32 +290,11 @@ public class Editor : MonoBehaviour
 			return 1283;
 		if (trois == 1)
 			return 1823;
-
+		//Debug.Log ("azerty"+circuits [CurrentCircuitIndex].PutGate );
 		return ret;
 	}
 
 
-	/// <summary>
-	///  Fonction qui prends en argument un float position et qui détermine le tuyau sur lequel on a cliqué
-	/// </summary>
-	public int TuyauSel(float pos)
-	{
-		int TuyauSelectionne = 0 ;
-
-
-		if(pos < 400)
-			TuyauSelectionne=1;
-		
-		if(pos == 400)
-			TuyauSelectionne=2;
-		
-		if(pos > 400)
-			TuyauSelectionne=3;
-		Debug.Log ("TuyauSelectionne = "+TuyauSelectionne );
-		return TuyauSelectionne;
-
-
-	}
 
 	/// <summary>
 	///  Fonction qui assure le formattage de la chaine de caractères de résultat basique vers une chaine adaptée pour pouvoir display les Boules avec les amplitudes

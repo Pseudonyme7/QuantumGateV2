@@ -4,6 +4,9 @@ using UnityEngine.UI;
 /// <summary>
 /// Etat pour montrer le résultat du circuit quantique jusqu'a la ligne _row.
 /// </summary>
+using TMPro;
+
+
 namespace PC_States
 {
     public class ShowResult : EditorState
@@ -12,6 +15,7 @@ namespace PC_States
     /// Numero de la ligne
     /// </summary>
     private int _row;
+	private int _col;
         //bwa
     /// <summary>
     /// Etat precedent
@@ -24,9 +28,10 @@ namespace PC_States
     /// <param name="context">Le SandBoxManager qui est le contexte du jeu</param>
     /// <param name="row">Numero de la ligne où l'evaluation du circuit s'arrete</param>
     /// <param name="previousState">Etat precedent</param>
-		public ShowResult(Editor context, int row, EditorState previousState, GateObject selectedGate) : base(context)
+		public ShowResult(Editor context, int row, int col,EditorState previousState, GateObject selectedGate) : base(context)
     {
         _row = row;
+		_col = col;
         _previousState = previousState;
 		_selectedGate  = selectedGate;
     }
@@ -40,14 +45,13 @@ namespace PC_States
         
         string res, res1, realres, test1;
 			int taille, cas, codeLiaison, choix = 0, numTuyau;
-			float coord;
-			Debug.Log("ShowResult");
+
+			//Debug.Log("ShowResult");
 			test1 = context.currentCircuit.Evaluate(_row).ToString();
-			Debug.Log("teeeest"+ test1);
+			//Debug.Log("teeeest"+ test1);
             res = context.currentCircuit.Evaluate(_row).ToString();
-			Vector3 pos = context.cam.WorldToScreenPoint(_selectedGate.pipes[0].transform.position);
-			coord = pos.x;
-			numTuyau = context.TuyauSel (coord);
+
+			numTuyau = _col + 1;
 			codeLiaison = context.TuyauxLiee();//MARCHE BIEN
 			cas = context.isRelated (codeLiaison);// MARCHE BIEN
 			choix = context.Choice (numTuyau, cas);//MARCHE BIEN
@@ -60,7 +64,7 @@ namespace PC_States
 
 
 			//Affichage des données manipulées dans la console afin d'avoir une idée de ce qui est fait
-			//Debug.Log("chaine1 ="+ res1);
+			Debug.Log("eeeeeeeeeee"+numTuyau);
 			//Debug.Log("chaine2 ="+ realres);
 
 			context.SetResultText (realres );

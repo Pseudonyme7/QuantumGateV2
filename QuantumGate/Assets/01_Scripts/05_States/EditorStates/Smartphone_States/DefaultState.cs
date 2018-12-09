@@ -25,8 +25,8 @@ namespace Smartphone_States
         public override void OnGridClick(Tuple<int, int, Editor.ClickPosition> infos)
         {
             int row = infos.Item1;
-
-            context.CurrentState = new ShowResult(context, row, context.CurrentState);
+			int col = infos.Item1;
+			context.CurrentState = new ShowResult(context, row,col, context.CurrentState);
         }
 
         public override void OnDragStart(Vector3 position)

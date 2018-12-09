@@ -71,8 +71,8 @@ namespace PC_States
             QCS.Circuit.GateStruct gateStruct = _selectedGate.gateStruct;
 
             int row = gateStruct.row;
-
-			context.CurrentState = new ShowResult(context, row, _previousState, _selectedGate);
+			int col = gateStruct.col;
+			context.CurrentState = new ShowResult(context, row, col, _previousState, _selectedGate);
         }
 
         public void PositionPanel()

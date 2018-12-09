@@ -51,8 +51,8 @@ namespace Smartphone_States
                 Tuple<int, int> coordinates = context.gridBoard.GetGridCoordinates(gridBoardPosition);
 
                 int row = coordinates.Item1;
-
-                context.CurrentState = new ShowResult(context, row, context.CurrentState);
+				int col = coordinates.Item2;
+				context.CurrentState = new ShowResult(context, row, col, context.CurrentState);
             }
         }
 
