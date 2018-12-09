@@ -64,8 +64,8 @@ namespace PC_States
 
 
 			//Affichage des données manipulées dans la console afin d'avoir une idée de ce qui est fait
-			Debug.Log("eeeeeeeeeee"+numTuyau);
-			//Debug.Log("chaine2 ="+ realres);
+			//Debug.Log("NumTuyau :"+numTuyau);
+			//Debug.Log("Resultat ="+ realres);
 
 			context.SetResultText (realres );
             
@@ -75,7 +75,7 @@ namespace PC_States
 
 
 			// Section qui sert a redimensionner le nuage en fonction de la taille du resultat à afficher
-			taille = res.Length;
+			/*taille = res.Length;
             if(taille > 50){
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f)*1.1f);
                 context.SetResultSize(25);
@@ -87,7 +87,7 @@ namespace PC_States
             if(taille <= 30){
                 context.SetresultPanelScale(new Vector3(1.0f, 1.0f, 1.0f)*0.7f);//taille du nuage
                 context.SetResultSize(50);// Modification du text de la boite des resultats
-            }
+            }*/
             
             
 
@@ -105,8 +105,6 @@ namespace PC_States
 			for (i = 0; i < row; i++) {
 				for (j = 0; j < col; j++){
 					context.gridBoard.GetGateObject (i, j).Deselect();
-					Debug.Log("AAAAAAAAAAAAAAAAA");
-
 				}
 			}
 			context.ShowResultPanel(false);

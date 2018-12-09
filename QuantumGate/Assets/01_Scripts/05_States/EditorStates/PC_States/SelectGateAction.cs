@@ -32,15 +32,15 @@ namespace PC_States
             base.Update();
             PositionPanel();
         }
-
 		public override void OnExit()
-        {
-            GateObject gateObject = _selectedGate.GetComponent<GateObject>();
+		{
+			GateObject gateObject = _selectedGate.GetComponent<GateObject>();
 
 			//gateObject.Deselect ();
-            context.ShowActionsGatePanel(false);
+			context.ShowActionsGatePanel(false);
 
-        }
+		}
+
 			
 
 
