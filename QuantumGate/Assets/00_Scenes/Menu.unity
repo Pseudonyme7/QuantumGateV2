@@ -285,7 +285,7 @@ Prefab:
     - target: {fileID: 114283471595145364, guid: 88f792ad8edb195438e6af383cb1d5ba,
         type: 2}
       propertyPath: m_Text
-      value: Medium
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114283471595145364, guid: 88f792ad8edb195438e6af383cb1d5ba,
         type: 2}
@@ -5050,7 +5050,7 @@ Prefab:
     - target: {fileID: 114283471595145364, guid: 88f792ad8edb195438e6af383cb1d5ba,
         type: 2}
       propertyPath: m_Text
-      value: Hard
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114283471595145364, guid: 88f792ad8edb195438e6af383cb1d5ba,
         type: 2}
@@ -10127,6 +10127,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1905418764}
+    - target: {fileID: 114283471595145364, guid: 88f792ad8edb195438e6af383cb1d5ba,
+        type: 2}
+      propertyPath: m_Text
+      value: Levels
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88f792ad8edb195438e6af383cb1d5ba, type: 2}
   m_IsPrefabParent: 0
