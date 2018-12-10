@@ -73,6 +73,9 @@ namespace PC_States
             context.CurrentState = new MoveGate(context, _selectedGate, _previousState);
         }
 
+		/// <summary>
+		///  Fonction qui permet de selectionner les tuyaux lors du résultat afin de savoir ceux qui sont liés au tuyau demandé
+		/// </summary>
         public override void OnProcessCircuitClick()
         {
             QCS.Circuit.GateStruct gateStruct = _selectedGate.gateStruct;
