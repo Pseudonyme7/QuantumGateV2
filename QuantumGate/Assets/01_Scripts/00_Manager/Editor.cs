@@ -419,7 +419,7 @@ public class Editor : MonoBehaviour
 			return modif8;
 		}
 
-		if(choix == 2){
+		if(choix == 2 && currentCircuit.NbCol == 3){
 			string modif1 = resNormal.Replace ("|000>", "|0>");
 			string modif2 = modif1.Replace ("|001>", "|0>");
 			string modif3 = modif2.Replace ("|010>", "|1>");
@@ -431,7 +431,16 @@ public class Editor : MonoBehaviour
 			return modif8;
 		}
 
-		if(choix == 1){
+		if(choix == 2 && currentCircuit.NbCol == 2){
+			string modif1 = resNormal.Replace ("|00>", "|0>");
+			string modif2 = modif1.Replace ("|01>", "|1>");
+			string modif3 = modif2.Replace ("|10>", "|0>");
+			string modif4 = modif3.Replace ("|11>", "|1>");
+
+			return modif4;
+		}
+
+		if(choix == 1 && currentCircuit.NbCol == 3){
 			string modif1 = resNormal.Replace ("|000>", "|0>");
 			string modif2 = modif1.Replace ("|001>", "|0>");
 			string modif3 = modif2.Replace ("|010>", "|0>");
@@ -441,6 +450,15 @@ public class Editor : MonoBehaviour
 			string modif7 = modif6.Replace ("|110>", "|1>");
 			string modif8 = modif7.Replace ("|111>", "|1>");
 			return modif8;
+		}
+
+		if(choix == 1 && currentCircuit.NbCol == 2){
+			string modif1 = resNormal.Replace ("|00>", "|0>");
+			string modif2 = modif1.Replace ("|01>", "|0>");
+			string modif3 = modif2.Replace ("|10>", "|1>");
+			string modif4 = modif3.Replace ("|11>", "|1>");
+
+			return modif4;
 		}
 
 		if(choix == 3){
