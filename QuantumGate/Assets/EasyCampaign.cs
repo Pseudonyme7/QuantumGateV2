@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class EasyCampaign : MonoBehaviour {
 
-
 	public void OnClick()
 	{
-		SceneManager.LoadScene("SelectLevels", LoadSceneMode.Single);
+		List<QCS.Circuit> circuits = new List<QCS.Circuit>
+		{
+			new QCS.Circuit(5, 3)
+		};
+
+		GameMode.nameGame = "";
+		GameMode.circuits = circuits;
+		GameMode.gates = new List<QCS.Gate>() { QCS.Gate.NOT, QCS.Gate.CONTROL, QCS.Gate.SWAP, QCS.Gate.HADAMARD, QCS.Gate.CNOT};
+		GameMode.customGates = new List<QCS.Gate>();
+
+		SceneManager.LoadScene("SandBox", LoadSceneMode.Single);
 	}
 }

@@ -30,9 +30,6 @@ EditorBuildSettings:
     path: Assets/00_Scenes/SandBox 3.unity
     guid: 93b2c5968be0c3743a21c1cb5aece4e8
   - enabled: 1
-    path: Assets/00_Scenes/ChoixLevel.unity
-    guid: 22a2e21fb15188448b15bc4ccd3aeb07
-  - enabled: 1
     path: Assets/00_Scenes/Level1.unity
     guid: 7f32006a35fe24b41b8b3f6c368e5eb0
   - enabled: 1
@@ -47,3 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Level5.unity
     guid: ebf6b4efd6ea31b4da851b83bdaa45d9
+  - enabled: 1
+    path: Assets/00_Scenes/SelectLevels.unity
+    guid: 22a2e21fb15188448b15bc4ccd3aeb07
+  - enabled: 1
+    path: Assets/00_Scenes/Settings.unity
+    guid: 883f13d946981da4692e78128edab80a
