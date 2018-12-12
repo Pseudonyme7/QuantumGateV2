@@ -8,6 +8,6 @@ public class EasyCampaign : MonoBehaviour {
 
 	public void OnClick()
 	{
-		SceneManager.LoadScene("ChoixLevel", LoadSceneMode.Single);
+		SceneManager.LoadScene("SelectLevels", LoadSceneMode.Single);
 	}
 }
