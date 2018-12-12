@@ -461,6 +461,14 @@ public class Editor : MonoBehaviour
 			return modif4;
 		}
 
+		if(choix == 1 && currentCircuit.NbCol == 1){
+			string modif1 = resNormal.Replace ("|0>", "|0>");
+			string modif2 = modif1.Replace ("|1>", "|1>");
+
+
+			return modif2;
+		}
+
 		if(choix == 3){
 			string modif1 = resNormal.Replace ("|000>", "|0>");
 			string modif2 = modif1.Replace ("|001>", "|1>");

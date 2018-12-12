@@ -10,7 +10,7 @@ public class LoadLevel1 : MonoBehaviour {
 	{
 		List<QCS.Circuit> circuits = new List<QCS.Circuit>
 		{
-			new QCS.Circuit(10, 1)
+			new QCS.Circuit(5, 1)
 		};
 
 		GameMode.nameGame = "";
